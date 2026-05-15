@@ -136,6 +136,45 @@
       margin: 0 0 18px;
     }
 
+    .personal-card {
+  background: var(--card);
+  border: 1px solid var(--line);
+  border-radius: 16px;
+  padding: 20px 22px;
+  box-shadow: 0 10px 24px rgba(27, 33, 79, 0.045);
+
+  display: grid;
+  grid-template-columns: 1fr 180px;
+  gap: 24px;
+  align-items: center;
+}
+
+.personal-text p {
+  margin: 0;
+  font-size: 17px;
+}
+
+.dobby-photo {
+  width: 180px;
+  height: 180px;
+  object-fit: cover;
+  object-position: center;
+  border-radius: 16px;
+  border: 1px solid var(--line);
+  box-shadow: 0 10px 24px rgba(27, 33, 79, 0.08);
+}
+
+@media (max-width: 780px) {
+  .personal-card {
+    grid-template-columns: 1fr;
+  }
+
+  .dobby-photo {
+    width: 180px;
+    height: 180px;
+  }
+}
+    
     .status-row {
       display: flex;
       flex-wrap: wrap;
@@ -379,6 +418,7 @@
         <a href="files/Shuoyang_Xie_CV.pdf">CV</a>
         <a href="#research" class="nav-link">Research</a>
         <a href="#teaching" class="nav-link">Teaching</a>
+        <a href="#personal" class="nav-link">Personal</a>
         <a href="#contact" class="nav-link">Contact</a>
       </nav>
     </header>
@@ -523,6 +563,25 @@
         </div>
       </section>
 
+      <section class="section" id="personal">
+  <div class="section-header">
+    <h2>Personal</h2>
+    <div class="section-note">Outside research</div>
+  </div>
+
+  <div class="personal-card">
+    <div class="personal-text">
+      <p>
+        Outside of research and teaching, I enjoy spending time with my husband,
+        <a href="https://skzhang1.github.io/" target="_blank" rel="noopener noreferrer">Shaokun Zhang</a>,
+        and our Ragdoll cat, Dobby.
+      </p>
+    </div>
+
+    <img src="Dobby.jpg" alt="Dobby, my Ragdoll cat" class="dobby-photo">
+  </div>
+</section>
+      
       <section class="section" id="contact">
         <div class="section-header">
           <h2>Contact</h2>
