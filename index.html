@@ -2,124 +2,574 @@
 <html>
 <head>
   <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
   <title>Shuoyang Xie</title>
+
   <style>
+    :root {
+      --background: #f1f0ec;
+      --card: #fbfaf7;
+      --text: #1b214f;
+      --muted: #555a7f;
+      --line: #d6d2c8;
+      --soft: #efede6;
+      --accent: #1b214f;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
     body {
-      font-family: Arial, sans-serif;
-      max-width: 850px;
-      margin: 50px auto;
-      line-height: 1.6;
-      color: #222;
-      padding: 0 20px;
+      margin: 0;
+      background: var(--background);
+      color: var(--text);
+      font-family: Georgia, "Times New Roman", serif;
+      line-height: 1.55;
     }
-    h1 {
-      font-size: 36px;
-      margin-bottom: 5px;
-    }
-    h2 {
-      margin-top: 35px;
-      border-bottom: 1px solid #ddd;
-      padding-bottom: 5px;
-    }
+
     a {
-      color: #0056b3;
+      color: var(--accent);
       text-decoration: none;
+      border-bottom: 1px solid rgba(27, 33, 79, 0.45);
     }
+
     a:hover {
-      text-decoration: underline;
+      border-bottom: 2px solid var(--accent);
     }
+
+    .page {
+      max-width: 1080px;
+      margin: 0 auto;
+      padding: 34px 28px 56px;
+    }
+
+    .topbar {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      background: rgba(241, 240, 236, 0.94);
+      backdrop-filter: blur(8px);
+
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 16px 0;
+      border-bottom: 1px solid var(--line);
+      margin-bottom: 42px;
+    }
+
+    .site-name {
+      font-size: 25px;
+      font-weight: 600;
+      letter-spacing: 0.2px;
+    }
+
+    .nav {
+      display: flex;
+      gap: 26px;
+      font-size: 16px;
+    }
+
+    .nav a {
+      padding-bottom: 4px;
+      border-bottom: 2px solid transparent;
+    }
+
+    .nav a:hover {
+      border-bottom: 2px solid var(--accent);
+    }
+
+    .nav a.active {
+      border-bottom: 2px solid var(--accent);
+      font-weight: 600;
+    }
+
+    .hero {
+      display: grid;
+      grid-template-columns: 170px 1fr;
+      gap: 34px;
+      align-items: start;
+      margin-bottom: 36px;
+    }
+
+    .photo {
+      width: 170px;
+      height: 215px;
+      object-fit: cover;
+      border-radius: 12px;
+      border: 1px solid var(--line);
+      box-shadow: 0 12px 28px rgba(27, 33, 79, 0.10);
+      background: #ddd;
+    }
+
+    h1 {
+      font-size: 48px;
+      line-height: 1.05;
+      margin: 0 0 8px;
+      font-weight: 500;
+      letter-spacing: -0.6px;
+    }
+
     .subtitle {
-      font-size: 18px;
-      color: #555;
+      font-size: 20px;
+      color: var(--muted);
+      margin-bottom: 14px;
+      font-style: italic;
     }
+
+    .fields {
+      font-size: 17px;
+      margin-bottom: 18px;
+      color: var(--text);
+    }
+
+    .bio {
+      font-size: 18px;
+      max-width: 780px;
+      margin: 0 0 18px;
+    }
+
+    .status-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-top: 20px;
+    }
+
+    .pill {
+      display: inline-block;
+      padding: 7px 12px;
+      border: 1px solid var(--line);
+      border-radius: 999px;
+      background: var(--card);
+      font-size: 15px;
+    }
+
+    .button {
+      display: inline-block;
+      padding: 8px 14px;
+      border: 1px solid var(--accent);
+      border-radius: 999px;
+      font-size: 15px;
+      transition: 0.2s ease;
+    }
+
+    .button:hover {
+      background: var(--accent);
+      color: var(--background);
+      text-decoration: none;
+      border-bottom: 1px solid var(--accent);
+    }
+
+    .section {
+      margin-top: 36px;
+      scroll-margin-top: 95px;
+    }
+
+    .section-header {
+      border-bottom: 1px solid var(--line);
+      margin-bottom: 16px;
+      padding-bottom: 6px;
+      display: flex;
+      align-items: baseline;
+      gap: 18px;
+    }
+
+    h2 {
+      font-size: 29px;
+      line-height: 1.15;
+      font-weight: 500;
+      margin: 0;
+      letter-spacing: -0.2px;
+    }
+
+    .section-note {
+      color: var(--muted);
+      font-size: 15px;
+      font-style: italic;
+    }
+
+    .research-list {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 16px;
+    }
+
+    .research-item {
+      background: var(--card);
+      border: 1px solid var(--line);
+      border-radius: 16px;
+      padding: 20px 24px;
+      box-shadow: 0 10px 24px rgba(27, 33, 79, 0.045);
+    }
+
+    .featured-paper {
+      border-left: 5px solid var(--accent);
+    }
+
+    .label {
+      display: inline-block;
+      background: var(--soft);
+      border: 1px solid var(--line);
+      border-radius: 999px;
+      padding: 3px 9px;
+      font-size: 13px;
+      margin-bottom: 10px;
+      text-transform: uppercase;
+      letter-spacing: 0.4px;
+    }
+
     .paper-title {
-      font-weight: bold;
+      font-size: 20px;
+      font-weight: 700;
+      line-height: 1.32;
+      margin-bottom: 6px;
+    }
+
+    .paper-meta {
+      color: var(--muted);
+      font-size: 16px;
+      margin-bottom: 8px;
+    }
+
+    .paper-summary {
+      font-size: 16.5px;
+      max-width: 900px;
+      margin: 8px 0 14px;
+    }
+
+    .paper-links {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-top: 8px;
+    }
+
+    .teaching-grid {
+      display: grid;
+      grid-template-columns: 1.4fr 0.8fr;
+      gap: 18px;
+    }
+
+    .card {
+      background: var(--card);
+      border: 1px solid var(--line);
+      border-radius: 16px;
+      padding: 20px 22px;
+      box-shadow: 0 10px 24px rgba(27, 33, 79, 0.045);
+    }
+
+    .teaching-title {
+      font-size: 18px;
+      font-weight: 700;
+      margin-bottom: 4px;
+    }
+
+    .metric-row {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 12px;
+      align-items: center;
+    }
+
+    .metric {
+      font-size: 30px;
+      font-weight: 600;
+      line-height: 1.1;
+    }
+
+    .metric-label {
+      font-size: 14px;
+      color: var(--muted);
+      margin-top: 4px;
+    }
+
+    .comments {
+      margin-top: 16px;
+      padding-left: 20px;
+      font-size: 16.5px;
+    }
+
+    .comments li {
+      margin-bottom: 8px;
+    }
+
+    .contact-lines {
+      background: var(--card);
+      border: 1px solid var(--line);
+      border-radius: 16px;
+      padding: 18px 22px;
+      box-shadow: 0 10px 24px rgba(27, 33, 79, 0.045);
+      font-size: 17px;
+    }
+
+    .contact-lines p {
+      margin: 0 0 8px;
+    }
+
+    .contact-lines p:last-child {
+      margin-bottom: 0;
+    }
+
+    footer {
+      margin-top: 46px;
+      padding-top: 16px;
+      border-top: 1px solid var(--line);
+      color: var(--muted);
+      font-size: 14px;
+      text-align: center;
+    }
+
+    @media (max-width: 780px) {
+      .topbar {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 12px;
+      }
+
+      .nav {
+        gap: 16px;
+        flex-wrap: wrap;
+      }
+
+      .hero {
+        grid-template-columns: 1fr;
+      }
+
+      .photo {
+        width: 160px;
+        height: 205px;
+      }
+
+      h1 {
+        font-size: 40px;
+      }
+
+      .teaching-grid,
+      .metric-row {
+        grid-template-columns: 1fr;
+      }
     }
   </style>
 </head>
 
 <body>
 
-  <h1>Shuoyang Xie</h1>
+  <div class="page">
 
-  <p class="subtitle">
-    PhD Candidate in Accounting<br>
-    Smeal College of Business, Pennsylvania State University
-  </p>
+    <header class="topbar">
+      <div class="site-name">Shuoyang Xie</div>
 
-  <p>
-    I am a PhD candidate in Accounting at Penn State University. My research examines
-    how information frictions shape corporate disclosure, investor behavior, and capital markets.
-    I am on the 2026–2027 academic job market.
-  </p>
+      <nav class="nav">
+        <a href="#research" class="nav-link">Research</a>
+        <a href="#teaching" class="nav-link">Teaching</a>
+        <a href="files/Shuoyang_Xie_CV.pdf">CV</a>
+        <a href="#contact" class="nav-link">Contact</a>
+      </nav>
+    </header>
 
-  <p>
-    <a href="files/Shuoyang_Xie_CV.pdf">CV</a> |
-    <a href="#research">Research</a> |
-    <a href="#teaching">Teaching</a> |
-    <a href="mailto:skx5058@psu.edu">Email</a>
-  </p>
+    <main>
 
-  <h2 id="research">Research</h2>
+      <section class="hero">
+        <img src="files/headshot.jpg" alt="Shuoyang Xie" class="photo">
 
-  <p>
-    <span class="paper-title">
-      Expansion of Local Institutional Investor Presence and Voluntary Disclosure:
-      Evidence from New Airline Routes
-    </span><br>
-    Job Market Paper
-  </p>
+        <div>
+          <h1>Shuoyang Xie</h1>
 
-  <p>
-    <span class="paper-title">
-      The Demand for Public Information by Credit Rating Agencies during High Market Uncertainty
-    </span><br>
-    with Samuel B. Bonsall, IV and Karl A. Muller, III
-  </p>
+          <div class="subtitle">
+            PhD Candidate in Accounting<br>
+            Smeal College of Business, Pennsylvania State University
+          </div>
 
-  <p>
-    <span class="paper-title">
-      Do Fast Promotions Affect Audit Quality?
-    </span><br>
-    with Daniel Aobdia and Katie Stone
-  </p>
+          <div class="fields">
+            Financial reporting · Voluntary disclosure · Institutional investors · Capital markets
+          </div>
 
-  <p>
-    <span class="paper-title">
-      Does Option Trading Lead to Firms Having More Optimistic Shareholders?
-      Evidence from Earnings Announcements
-    </span><br>
-    with Karl A. Muller, III
-  </p>
+          <p class="bio">
+            I am a PhD candidate in Accounting at Penn State University. My research examines
+            how information frictions shape corporate disclosure, investor behavior, and capital markets.
+          </p>
 
-  <h2 id="teaching">Teaching</h2>
+          <div class="status-row">
+            <span class="pill">2026–2027 Academic Job Market</span>
+            <a class="button" href="files/Shuoyang_Xie_CV.pdf">Download CV</a>
+            <a class="button" href="#research">View Research</a>
+            <a class="button" href="mailto:skx5058@psu.edu">Email</a>
+          </div>
+        </div>
+      </section>
 
-  <p>
-    <strong>Instructor, ACCTG 211: Financial and Managerial Accounting for Decision Making</strong><br>
-    Pennsylvania State University, 2025
-  </p>
+      <section class="section" id="research">
+        <div class="section-header">
+          <h2>Research</h2>
+          <div class="section-note">Working papers and selected projects</div>
+        </div>
 
-  <p>
-    Teaching evaluation: Mean 4.9/5.0; Median 5.0/5.0
-  </p>
+        <div class="research-list">
 
-  <p>
-    Selected student comments:
-  </p>
+          <div class="research-item featured-paper">
+            <div class="label">Job Market Paper</div>
 
-  <ul>
-    <li>The instructor really knew how to break down complicated problems in a clear, step-by-step way.</li>
-    <li>The responsive and participatory classroom environment created by the instructor supported my learning.</li>
-    <li>FIFO and LIFO were easier than I expected because she explained them in a simple way.</li>
-    <li>The hands-on activities using the whiteboard were especially productive and engaging.</li>
-    <li>Her explanations were clear, and I always felt that she was prepared and organized.</li>
-  </ul>
+            <div class="paper-title">
+              Expansion of Local Institutional Investor Presence and Voluntary Disclosure:
+              Evidence from New Airline Routes
+            </div>
 
-  <h2>Contact</h2>
+            <div class="paper-meta">
+              Solo-authored
+            </div>
 
-  <p>
-    Email: <a href="mailto:skx5058@psu.edu">skx5058@psu.edu</a>
-  </p>
+            <div class="paper-links">
+              <a class="button" href="#">Paper</a>
+              <a class="button" href="#">Slides</a>
+              <a class="button" href="#">Abstract</a>
+            </div>
+          </div>
+
+          <div class="research-item">
+            <div class="label">Working Paper</div>
+
+            <div class="paper-title">
+              The Demand for Public Information by Credit Rating Agencies during High Market Uncertainty
+            </div>
+
+            <div class="paper-meta">
+              with Samuel B. Bonsall, IV and Karl A. Muller, III
+            </div>
+          </div>
+
+          <div class="research-item">
+            <div class="label">Working Paper</div>
+
+            <div class="paper-title">
+              Do Fast Promotions Affect Audit Quality?
+            </div>
+
+            <div class="paper-meta">
+              with Daniel Aobdia and Katie Stone
+            </div>
+          </div>
+
+          <div class="research-item">
+            <div class="label">Working Paper</div>
+
+            <div class="paper-title">
+              Does Option Trading Lead to Firms Having More Optimistic Shareholders?
+              Evidence from Earnings Announcements
+            </div>
+
+            <div class="paper-meta">
+              with Karl A. Muller, III
+            </div>
+          </div>
+
+        </div>
+      </section>
+
+      <section class="section" id="teaching">
+        <div class="section-header">
+          <h2>Teaching</h2>
+          <div class="section-note">Instructor experience</div>
+        </div>
+
+        <div class="teaching-grid">
+          <div class="card">
+            <div class="teaching-title">
+              ACCTG 211: Financial and Managerial Accounting for Decision Making
+            </div>
+
+            <div class="paper-meta">
+              Instructor, Pennsylvania State University, 2025
+            </div>
+
+            <p>
+              My teaching emphasizes clear step-by-step explanations,
+              inquiry-based learning, and hands-on classroom practice.
+            </p>
+
+            <p>
+              Selected student comments:
+            </p>
+
+            <ul class="comments">
+              <li>The instructor really knew how to break down complicated problems in a clear, step-by-step way.</li>
+              <li>The responsive and participatory classroom environment created by the instructor supported my learning.</li>
+              <li>FIFO and LIFO were easier than I expected because she explained them in a simple way.</li>
+              <li>The hands-on activities using the whiteboard were especially productive and engaging.</li>
+              <li>Her explanations were clear, and I always felt that she was prepared and organized.</li>
+            </ul>
+          </div>
+
+          <div class="card">
+            <div class="metric-row">
+              <div>
+                <div class="metric">4.9 / 5.0</div>
+                <div class="metric-label">Mean evaluation</div>
+              </div>
+
+              <div>
+                <div class="metric">5.0 / 5.0</div>
+                <div class="metric-label">Median evaluation</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="section" id="contact">
+        <div class="section-header">
+          <h2>Contact</h2>
+        </div>
+
+        <div class="contact-lines">
+          <p>Email: <a href="mailto:skx5058@psu.edu">skx5058@psu.edu</a></p>
+          <p>Institution: Smeal College of Business, Pennsylvania State University</p>
+          <p>Area: Accounting</p>
+        </div>
+      </section>
+
+    </main>
+
+    <footer>
+      © 2026 Shuoyang Xie
+    </footer>
+
+  </div>
+
+  <script>
+    const sections = document.querySelectorAll("section[id]");
+    const navLinks = document.querySelectorAll(".nav-link");
+
+    function updateActiveNav() {
+      let currentSection = "";
+
+      sections.forEach(section => {
+        const sectionTop = section.offsetTop - 120;
+        const sectionHeight = section.offsetHeight;
+
+        if (window.scrollY >= sectionTop && window.scrollY < sectionTop + sectionHeight) {
+          currentSection = section.getAttribute("id");
+        }
+      });
+
+      navLinks.forEach(link => {
+        link.classList.remove("active");
+
+        if (link.getAttribute("href") === "#" + currentSection) {
+          link.classList.add("active");
+        }
+      });
+    }
+
+    window.addEventListener("scroll", updateActiveNav);
+    window.addEventListener("load", updateActiveNav);
+  </script>
 
 </body>
 </html>
