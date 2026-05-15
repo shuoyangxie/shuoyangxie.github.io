@@ -238,12 +238,6 @@
       margin-bottom: 8px;
     }
 
-    .paper-summary {
-      font-size: 16.5px;
-      max-width: 900px;
-      margin: 8px 0 14px;
-    }
-
     .paper-links {
       display: flex;
       flex-wrap: wrap;
@@ -253,7 +247,7 @@
 
     .teaching-grid {
       display: grid;
-      grid-template-columns: 1.4fr 0.8fr;
+      grid-template-columns: 1fr 1fr;
       gap: 18px;
     }
 
@@ -290,10 +284,22 @@
       margin-top: 4px;
     }
 
+    .comments-box {
+      margin-top: 20px;
+      padding-top: 16px;
+      border-top: 1px solid var(--line);
+    }
+
+    .comments-title {
+      margin: 0 0 10px;
+      font-size: 16px;
+      font-weight: 600;
+    }
+
     .comments {
-      margin-top: 16px;
-      padding-left: 20px;
-      font-size: 16.5px;
+      margin: 0;
+      padding-left: 18px;
+      font-size: 15px;
     }
 
     .comments li {
@@ -476,6 +482,7 @@
         </div>
 
         <div class="teaching-grid">
+
           <div class="card">
             <div class="teaching-title">
               ACCTG 211: Financial and Managerial Accounting for Decision Making
@@ -489,18 +496,6 @@
               My teaching emphasizes clear step-by-step explanations,
               inquiry-based learning, and hands-on classroom practice.
             </p>
-
-            <p>
-              Selected student comments:
-            </p>
-
-            <ul class="comments">
-              <li>The instructor really knew how to break down complicated problems in a clear, step-by-step way.</li>
-              <li>The responsive and participatory classroom environment created by the instructor supported my learning.</li>
-              <li>FIFO and LIFO were easier than I expected because she explained them in a simple way.</li>
-              <li>The hands-on activities using the whiteboard were especially productive and engaging.</li>
-              <li>Her explanations were clear, and I always felt that she was prepared and organized.</li>
-            </ul>
           </div>
 
           <div class="card">
@@ -515,7 +510,20 @@
                 <div class="metric-label">Median evaluation</div>
               </div>
             </div>
+
+            <div class="comments-box">
+              <p class="comments-title">Selected student comments:</p>
+
+              <ul class="comments">
+                <li>The instructor really knew how to break down complicated problems in a clear, step-by-step way.</li>
+                <li>The responsive and participatory classroom environment created by the instructor supported my learning.</li>
+                <li>FIFO and LIFO were easier than I expected because she explained them in a simple way.</li>
+                <li>The hands-on activities using the whiteboard were especially productive and engaging.</li>
+                <li>Her explanations were clear, and I always felt that she was prepared and organized.</li>
+              </ul>
+            </div>
           </div>
+
         </div>
       </section>
 
