@@ -136,45 +136,34 @@
       margin: 0 0 18px;
     }
 
-  .personal-card {
-  background: var(--card);
-  border: 1px solid var(--line);
-  border-radius: 16px;
-  padding: 20px 22px;
-  box-shadow: 0 10px 24px rgba(27, 33, 79, 0.045);
+    .personal-card {
+      background: var(--card);
+      border: 1px solid var(--line);
+      border-radius: 16px;
+      padding: 20px 22px;
+      box-shadow: 0 10px 24px rgba(27, 33, 79, 0.045);
 
-  display: grid;
-  grid-template-columns: 1fr 180px;
-  gap: 24px;
-  align-items: center;
-}
+      display: grid;
+      grid-template-columns: 1fr 180px;
+      gap: 24px;
+      align-items: center;
+    }
 
-.personal-text p {
-  margin: 0;
-  font-size: 17px;
-}
+    .personal-text p {
+      margin: 0;
+      font-size: 17px;
+    }
 
-.dobby-photo {
-  width: 180px;
-  height: 180px;
-  object-fit: cover;
-  object-position: left bottom;
-  border-radius: 16px;
-  border: 1px solid var(--line);
-  box-shadow: 0 10px 24px rgba(27, 33, 79, 0.08);
-}
+    .dobby-photo {
+      width: 180px;
+      height: 180px;
+      object-fit: cover;
+      object-position: left bottom;
+      border-radius: 16px;
+      border: 1px solid var(--line);
+      box-shadow: 0 10px 24px rgba(27, 33, 79, 0.08);
+    }
 
-@media (max-width: 780px) {
-  .personal-card {
-    grid-template-columns: 1fr;
-  }
-
-  .dobby-photo {
-    width: 180px;
-    height: 180px;
-  }
-}
-    
     .status-row {
       display: flex;
       flex-wrap: wrap;
@@ -198,6 +187,10 @@
       border-radius: 999px;
       font-size: 15px;
       transition: 0.2s ease;
+      background: transparent;
+      color: var(--accent);
+      font-family: Georgia, "Times New Roman", serif;
+      cursor: pointer;
     }
 
     .button:hover {
@@ -205,6 +198,26 @@
       color: var(--background);
       text-decoration: none;
       border-bottom: 1px solid var(--accent);
+    }
+
+    .abstract-content {
+      display: none;
+      margin-top: 14px;
+      padding: 14px 16px;
+      border-left: 4px solid var(--accent);
+      background: var(--soft);
+      border-radius: 0 10px 10px 0;
+      color: var(--text);
+      font-size: 16px;
+      line-height: 1.6;
+    }
+
+    .abstract-content p {
+      margin: 0;
+    }
+
+    .abstract-content.show {
+      display: block;
     }
 
     .section {
@@ -346,43 +359,32 @@
       margin-bottom: 8px;
     }
 
-.certificate-card {
-  background: var(--card);
-  border: 1px solid var(--line);
-  border-radius: 16px;
-  padding: 20px 22px;
-  box-shadow: 0 10px 24px rgba(27, 33, 79, 0.045);
+    .certificate-card {
+      background: var(--card);
+      border: 1px solid var(--line);
+      border-radius: 16px;
+      padding: 20px 22px;
+      box-shadow: 0 10px 24px rgba(27, 33, 79, 0.045);
 
-  display: grid;
-  grid-template-columns: 1fr 220px;
-  gap: 24px;
-  align-items: center;
-}
+      display: grid;
+      grid-template-columns: 1fr 220px;
+      gap: 24px;
+      align-items: center;
+    }
 
-.certificate-text p {
-  margin-top: 0;
-  font-size: 17px;
-}
+    .certificate-text p {
+      margin-top: 0;
+      font-size: 17px;
+    }
 
-.certificate-preview {
-  width: 220px;
-  height: 160px;
-  border: 1px solid var(--line);
-  border-radius: 12px;
-  background: white;
-}
+    .certificate-preview {
+      width: 220px;
+      height: 160px;
+      border: 1px solid var(--line);
+      border-radius: 12px;
+      background: white;
+    }
 
-@media (max-width: 780px) {
-  .certificate-card {
-    grid-template-columns: 1fr;
-  }
-
-  .certificate-preview {
-    width: 100%;
-    height: 260px;
-  }
-}
-    
     .contact-lines {
       background: var(--card);
       border: 1px solid var(--line);
@@ -440,6 +442,24 @@
       .metric-row {
         grid-template-columns: 1fr;
       }
+
+      .personal-card {
+        grid-template-columns: 1fr;
+      }
+
+      .dobby-photo {
+        width: 180px;
+        height: 180px;
+      }
+
+      .certificate-card {
+        grid-template-columns: 1fr;
+      }
+
+      .certificate-preview {
+        width: 100%;
+        height: 260px;
+      }
     }
   </style>
 </head>
@@ -452,12 +472,12 @@
       <div class="site-name">Shuoyang Xie</div>
 
       <nav class="nav">
-  <a href="CV.pdf" class="nav-link" target="_blank" rel="noopener">CV</a>
-  <a href="#research" class="nav-link">Research</a>
-  <a href="#teaching" class="nav-link">Teaching</a>
-  <a href="#personal" class="nav-link">Personal</a>
-  <a href="#contact" class="nav-link">Contact</a>
-</nav>
+        <a href="CV.pdf" class="nav-link" target="_blank" rel="noopener">CV</a>
+        <a href="#research" class="nav-link">Research</a>
+        <a href="#teaching" class="nav-link">Teaching</a>
+        <a href="#personal" class="nav-link">Personal</a>
+        <a href="#contact" class="nav-link">Contact</a>
+      </nav>
     </header>
 
     <main>
@@ -470,9 +490,7 @@
 
           <div class="subtitle">
             PhD Candidate in Accounting<br>
-            
           </div>
-
 
           <p class="bio">
             I am a doctoral student in Accounting at Penn State University. My research examines
@@ -505,7 +523,15 @@
             </div>
 
             <div class="paper-links">
-              <a class="button" href="#">Abstract</a>
+              <button class="button abstract-toggle" type="button" onclick="toggleAbstract(this)">
+                Abstract
+              </button>
+            </div>
+
+            <div class="abstract-content">
+              <p>
+                This paper examines whether managers' voluntary disclosure behavior changes when the presence of local institutional investors grows. Using the introduction of new airline routes that connect firms with institutional investors as exogenous variation in local institutional investor presence, I find that connected firms significantly increase their voluntary disclosure frequency in two important ways: issuing 8% more voluntary Form 8-K filings and providing 28% more management guidance. I provide cross-sectional evidence that the increase in voluntary disclosure is stronger for larger firms in both voluntary 8-K and management guidance channels, and stronger for more profitable firms in the management guidance channel. I also find that these firms experience narrower bid–ask spreads and higher trading volume following the introduction of new routes, consistent with reduced information asymmetry and increased liquidity. Overall, these findings suggest that managers respond to greater demand for information from local institutional investors by increasing the supply of public information and that the increase improves firms' information environments.
+              </p>
             </div>
           </div>
 
@@ -564,8 +590,6 @@
             <div class="paper-meta">
               Instructor, Pennsylvania State University, 2025
             </div>
-
-
           </div>
 
           <div class="card">
@@ -594,38 +618,37 @@
             </div>
           </div>
 
-          <!-- Box 3: Teaching Description + Certificate -->
-<div class="certificate-card">
-  <div class="certificate-text">
-    <p>
-      My teaching emphasizes clear explanations, inquiry-based learning, and hands-on classroom practice. I further developed my teaching by completing Penn State’s CIRTL Associate Level training and received the CIRTL Teaching Certificate.
-    </p>
-  </div>
+          <div class="certificate-card">
+            <div class="certificate-text">
+              <p>
+                My teaching emphasizes clear explanations, inquiry-based learning, and hands-on classroom practice. I further developed my teaching by completing Penn State’s CIRTL Associate Level training and received the CIRTL Teaching Certificate.
+              </p>
+            </div>
 
-  <object data="certificate.pdf" type="application/pdf" class="certificate-preview">
-  </object>
-</div>
+            <object data="certificate.pdf" type="application/pdf" class="certificate-preview">
+            </object>
+          </div>
 
         </div>
       </section>
 
       <section class="section" id="personal">
-  <div class="section-header">
-    <h2>Personal</h2>
-  </div>
+        <div class="section-header">
+          <h2>Personal</h2>
+        </div>
 
-  <div class="personal-card">
-    <div class="personal-text">
-      <p>
-        I am married to <a href="https://skzhang1.github.io/" target="_blank" rel="noopener noreferrer">Dr. Shaokun Zhang</a>.
-        We enjoy spending time with our cat, Dobby.
-      </p>
-    </div>
+        <div class="personal-card">
+          <div class="personal-text">
+            <p>
+              I am married to <a href="https://skzhang1.github.io/" target="_blank" rel="noopener noreferrer">Dr. Shaokun Zhang</a>.
+              We enjoy spending time with our cat, Dobby.
+            </p>
+          </div>
 
-    <img src="Dobby.jpg" alt="Dobby, my Ragdoll cat" class="dobby-photo">
-  </div>
-</section>
-      
+          <img src="Dobby.jpg" alt="Dobby, my Ragdoll cat" class="dobby-photo">
+        </div>
+      </section>
+
       <section class="section" id="contact">
         <div class="section-header">
           <h2>Contact</h2>
@@ -647,6 +670,19 @@
   </div>
 
   <script>
+    function toggleAbstract(button) {
+      const researchItem = button.closest(".research-item");
+      const abstract = researchItem.querySelector(".abstract-content");
+
+      abstract.classList.toggle("show");
+
+      if (abstract.classList.contains("show")) {
+        button.textContent = "Hide Abstract";
+      } else {
+        button.textContent = "Abstract";
+      }
+    }
+
     const sections = document.querySelectorAll("section[id]");
     const navLinks = document.querySelectorAll(".nav-link");
 
