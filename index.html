@@ -55,7 +55,6 @@
       z-index: 100;
       background: rgba(241, 240, 236, 0.94);
       backdrop-filter: blur(8px);
-
       display: flex;
       justify-content: space-between;
       align-items: center;
@@ -121,14 +120,7 @@
       font-size: 19px;
       color: var(--muted);
       font-style: italic;
-      margin-bottom: 10px;
-    }
-
-    .subtitle {
-      font-size: 21px;
-      color: var(--muted);
-      margin-bottom: 18px;
-      font-style: italic;
+      margin-bottom: 14px;
     }
 
     .bio {
@@ -156,34 +148,6 @@
       line-height: 1.2;
     }
 
-    .personal-card {
-      background: var(--card);
-      border: 1px solid var(--line);
-      border-radius: 16px;
-      padding: 20px 22px;
-      box-shadow: 0 10px 24px rgba(27, 33, 79, 0.045);
-
-      display: grid;
-      grid-template-columns: 1fr 180px;
-      gap: 24px;
-      align-items: center;
-    }
-
-    .personal-text p {
-      margin: 0;
-      font-size: 17px;
-    }
-
-    .dobby-photo {
-      width: 180px;
-      height: 180px;
-      object-fit: cover;
-      object-position: left bottom;
-      border-radius: 16px;
-      border: 1px solid var(--line);
-      box-shadow: 0 10px 24px rgba(27, 33, 79, 0.08);
-    }
-
     .button {
       display: inline-block;
       padding: 8px 14px;
@@ -205,17 +169,17 @@
     }
 
     .abstract-content {
-  display: none;
-  margin-top: 14px;
-  padding: 14px 16px;
-  border-left: 4px solid var(--accent);
-  background: var(--soft);
-  border-radius: 0 10px 10px 0;
-  color: var(--text);
-  font-size: 16px;
-  line-height: 1.6;
-  text-align: justify;
-}
+      display: none;
+      margin-top: 14px;
+      padding: 14px 16px;
+      border-left: 4px solid var(--accent);
+      background: var(--soft);
+      border-radius: 0 10px 10px 0;
+      color: var(--text);
+      font-size: 16px;
+      line-height: 1.6;
+      text-align: justify;
+    }
 
     .abstract-content p {
       margin: 0;
@@ -245,12 +209,6 @@
       font-weight: 500;
       margin: 0;
       letter-spacing: -0.2px;
-    }
-
-    .section-note {
-      color: var(--muted);
-      font-size: 15px;
-      font-style: italic;
     }
 
     .research-list {
@@ -370,7 +328,6 @@
       border-radius: 16px;
       padding: 20px 22px;
       box-shadow: 0 10px 24px rgba(27, 33, 79, 0.045);
-
       display: grid;
       grid-template-columns: 1fr 220px;
       gap: 24px;
@@ -388,6 +345,33 @@
       border: 1px solid var(--line);
       border-radius: 12px;
       background: white;
+    }
+
+    .personal-card {
+      background: var(--card);
+      border: 1px solid var(--line);
+      border-radius: 16px;
+      padding: 20px 22px;
+      box-shadow: 0 10px 24px rgba(27, 33, 79, 0.045);
+      display: grid;
+      grid-template-columns: 1fr 180px;
+      gap: 24px;
+      align-items: center;
+    }
+
+    .personal-text p {
+      margin: 0;
+      font-size: 17px;
+    }
+
+    .dobby-photo {
+      width: 180px;
+      height: 180px;
+      object-fit: cover;
+      object-position: left bottom;
+      border-radius: 16px;
+      border: 1px solid var(--line);
+      box-shadow: 0 10px 24px rgba(27, 33, 79, 0.08);
     }
 
     .contact-lines {
@@ -423,30 +407,35 @@
         gap: 12px;
       }
 
-    .bio,
-  .abstract-content {
-    text-align: left;
-  }
-}
-
       .nav {
         gap: 16px;
         flex-wrap: wrap;
       }
 
       .hero {
-        grid-template-columns: 1fr;
+        grid-template-columns: 150px minmax(0, 1fr);
+        gap: 22px;
+        align-items: center;
       }
 
       .photo {
-        width: 170px;
-        height: 215px;
+        width: 150px;
+        height: 190px;
         object-fit: cover;
         object-position: center bottom;
       }
 
       h1 {
-        font-size: 40px;
+        font-size: 34px;
+      }
+
+      .pronunciation {
+        font-size: 16px;
+      }
+
+      .bio,
+      .abstract-content {
+        text-align: left;
       }
 
       .teaching-grid,
@@ -470,6 +459,17 @@
       .certificate-preview {
         width: 100%;
         height: 260px;
+      }
+    }
+
+    @media (max-width: 560px) {
+      .hero {
+        grid-template-columns: 1fr;
+      }
+
+      .photo {
+        width: 170px;
+        height: 215px;
       }
     }
   </style>
@@ -503,12 +503,11 @@
             Pronunciation: shwo-yahng
           </div>
 
-          
-
           <p class="bio">
             I am a PhD candidate in Accounting at Penn State University. My research examines
-  how information frictions shape corporate disclosure, investor behavior, and capital markets.<br>
-  I received my bachelor's degree from the University of Toronto, where I double majored in Economics and Commerce and graduated with High Distinction.
+            how information frictions shape corporate disclosure, investor behavior, and capital markets.<br>
+            I received my bachelor's degree from the University of Toronto, where I double majored in
+            Economics and Commerce and graduated with High Distinction.
           </p>
 
           <div class="status-row">
