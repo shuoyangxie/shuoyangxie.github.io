@@ -117,18 +117,20 @@
     }
 
     .pronunciation {
-  display: inline-block;
   font-size: 19px;
-  color: var(--text);
-  font-style: italic;
-  font-weight: 600;
-  margin: 4px 0 18px;
-  padding: 4px 10px;
-  background: var(--soft);
-  border-left: 4px solid var(--accent);
-  border-radius: 6px;
+  color: var(--muted);
+  font-style: normal;
+  font-weight: 500;
+  margin: 2px 0 24px;
+  letter-spacing: 0.1px;
 }
 
+    .pronunciation-name {
+  color: var(--text);
+  font-style: italic;
+  font-weight: 700;
+}
+    
     .bio {
       font-size: 17.5px;
       max-width: 760px;
@@ -505,8 +507,8 @@
         <div>
           <h1>Shuoyang Xie</h1>
 
-          <div class="pronunciation">
-  Pronounced: <strong>shwo-yahng</strong>
+        <div class="pronunciation">
+  Pronounced: <span class="pronunciation-name">shwo-yahng</span>
 </div>
 
           <p class="bio">
