@@ -341,13 +341,15 @@
   padding: 34px 42px;
   box-shadow: 0 10px 24px rgba(27, 33, 79, 0.045);
   display: grid;
-  grid-template-columns: minmax(0, 1fr) 360px;
+  grid-template-columns: minmax(0, 1fr) 380px;
   gap: 44px;
   align-items: center;
 }
 
-    .certificate-text {
+.certificate-text {
   max-width: 760px;
+  justify-self: start;
+  margin-left: 0;
 }
 
 .certificate-text p {
@@ -357,9 +359,9 @@
   line-height: 1.6;
 }
 
-    .certificate-preview {
-  width: 360px;
-  height: 250px;
+.certificate-preview {
+  width: 380px;
+  height: 265px;
   border: 1px solid var(--line);
   border-radius: 12px;
   background: white;
